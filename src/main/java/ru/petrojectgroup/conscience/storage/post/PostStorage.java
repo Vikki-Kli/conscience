@@ -1,4 +1,4 @@
-package ru.petrojectgroup.conscience.storage.post.dao;
+package ru.petrojectgroup.conscience.storage.post;
 
 import ru.petrojectgroup.conscience.model.Post;
 

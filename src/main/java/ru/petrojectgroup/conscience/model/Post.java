@@ -1,19 +1,24 @@
 package ru.petrojectgroup.conscience.model;
 
-import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NonNull;
-import lombok.extern.slf4j.Slf4j;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Slf4j
-@Data
-@NonNull
+import java.time.Instant;
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class Post {
     private long postId;
     @NotBlank(message = "Post content cannot be blank")
     private String postContent;
     private final Instant creationDate = Instant.now(); // дата создания
-    private final long userId;
+
+    private long userId;
     private String photoUrl; // опционально
 
     // поле postId присваивается БД
@@ -21,4 +26,6 @@ public class Post {
         this.postContent = postContent;
         this.userId = userId;
     }
+
+
 }

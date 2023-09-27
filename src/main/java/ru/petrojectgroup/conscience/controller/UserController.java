@@ -2,7 +2,6 @@ package ru.petrojectgroup.conscience.controller;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.petrojectgroup.conscience.model.User;
 import ru.petrojectgroup.conscience.service.UserService;
@@ -15,7 +14,6 @@ import java.util.Collection;
 public class UserController {
     private final UserService userService;
 
-    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -23,6 +21,7 @@ public class UserController {
     @PostMapping
     public User createUser(@RequestBody @Valid User user) {
         userService.createUser(user);
+        log.info("Создан пользователь с id {}", user.getUserId());
         return user;
     }
 
@@ -40,6 +39,7 @@ public class UserController {
     @PutMapping
     public User updateUser(@RequestBody @Valid User user) {
         userService.updateUser(user);
+        log.info("Обновлен пользователь с id {}", user.getUserId());
         return user;
     }
 

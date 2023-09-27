@@ -1,23 +1,25 @@
 package ru.petrojectgroup.conscience.model;
 
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NonNull;
-import lombok.extern.slf4j.Slf4j;
+import jakarta.validation.constraints.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 
-
-@Slf4j
-@Data
-@NonNull
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class User {
     private long userId;
-    @NotEmpty(message = "Name can not be empty")
+    @NotBlank(message="Email can not be empty")
+    @Email
+    @Size(min = 6, max = 80, message = "Email must be between 6 and 80 characters long")
     private String email;
     @NotBlank(message = "Login can not be blank")
-    @Size(min = 3, max = 32, message = "Login must be between 3 and 32 characters long") 
+    @Size(min = 3, max = 32, message = "Login must be between 3 and 32 characters long")
     private String login;
     private String name;
     @NotNull(message = "Birthday cannot be null")
@@ -31,6 +33,5 @@ public class User {
         this.login = login;
         this.name = name == null || name.trim().isEmpty() ? login : name;
         this.birthday = birthday;
-        this.isAuthorized = false;
     }
 }

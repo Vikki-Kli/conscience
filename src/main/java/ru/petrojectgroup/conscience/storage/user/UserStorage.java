@@ -1,4 +1,4 @@
-package ru.petrojectgroup.conscience.storage.user.dao;
+package ru.petrojectgroup.conscience.storage.user;
 
 import ru.petrojectgroup.conscience.model.User;
 

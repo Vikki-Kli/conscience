@@ -2,7 +2,6 @@ package ru.petrojectgroup.conscience.controller;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.petrojectgroup.conscience.model.Post;
 import ru.petrojectgroup.conscience.service.PostService;
@@ -26,9 +25,9 @@ public class PostController {
         return post;
     }
 
-    @DeleteMapping("/{id}")
-    public void deletePost(@PathVariable long postId) {
-        postService.deletePost(postId);
+    @DeleteMapping("/{id}/{id}")
+    public void deletePost(@PathVariable long postId, @PathVariable long userId) {
+        postService.deletePost(postId, userId);
         log.info("Пост с id {} был удален", postId);
     }
 
@@ -37,10 +36,10 @@ public class PostController {
         return postService.findAll();
     }
 
-    @PutMapping
-    public Post updatePost(@RequestBody @Valid Post post) {
-        postService.updatePost(post);
-        log.info("Пост с id {} был обновлен", postId);
+    @PutMapping("/{id}")
+    public Post updatePost(@RequestBody @Valid Post post, @PathVariable long userId) {
+        postService.updatePost(post, userId);
+        log.info("Пост с id {} был обновлен", post.getUserId());
         return post;
     }
 
