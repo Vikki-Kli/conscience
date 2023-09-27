@@ -15,7 +15,6 @@ import java.util.Collection;
 public class PostController {
     private final PostService postService;
 
-    @Autowired
     public PostController(PostService postService) {
         this.postService = postService;
     }
@@ -23,6 +22,7 @@ public class PostController {
     @PostMapping
     public Post createPost(@RequestBody @Valid Post post) {
         postService.createPost(post);
+        log.info("Пользователь с id {} добавил новый пост", post.getUserId());
         return post;
     }
 
@@ -40,6 +40,7 @@ public class PostController {
     @PutMapping
     public Post updatePost(@RequestBody @Valid Post post) {
         postService.updatePost(post);
+        log.info("Пост с id {} был обновлен", postId);
         return post;
     }
 
