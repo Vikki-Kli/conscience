@@ -10,10 +10,10 @@ import lombok.extern.slf4j.Slf4j;
 @NonNull
 public class Post {
     private long postId;
-    @NotNull(message = "Post content cannot be null")
+    @NotBlank(message = "Post content cannot be blank")
     private String postContent;
-    @NotNull(message = "User id cannot be null")
-    private long userId;
+    private final Instant creationDate = Instant.now(); // дата создания
+    private final long userId;
     private String photoUrl; // опционально
 
     // поле postId присваивается БД
