@@ -16,13 +16,13 @@ public class User {
     private long userId;
     @NotEmpty(message = "Name can not be empty")
     private String email;
-    @NotEmpty(message = "Login can not be empty")
-    @NotNull(message = "Login cannot be null")
+    @NotBlank(message = "Login can not be blank")
+    @Size(min = 3, max = 32, message = "Login must be between 3 and 32 characters long") 
     private String login;
     private String name;
     @NotNull(message = "Birthday cannot be null")
+    @Past(message = "Birthday cannot be in future")
     private LocalDate birthday;
-    private boolean isAuthorized; //TODO: продумать момент, когда у пользователя меняется статус авторизации
     private String photoUrl; // опционально
 
     // поле userId присваивается БД
