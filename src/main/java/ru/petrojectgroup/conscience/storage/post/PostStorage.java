@@ -1,14 +1,18 @@
 package ru.petrojectgroup.conscience.storage.post;
 
-import ru.petrojectgroup.conscience.model.Post;
+import org.springframework.data.jpa.repository.JpaRepository;
+import ru.petrojectgroup.conscience.model.post.Post;
 
 import java.util.Collection;
+import java.util.NoSuchElementException;
 
-public interface PostStorage {
-    Post createPost(Post post);
-    void deletePost(long postId);
-    Collection<Post> findAll();
-    Post updatePost(Post post);
-    Post findPost(long postId);
-    Collection<Post> findAllPostsOfUser(long userId);
+public interface PostStorage extends JpaRepository<Post, Long> {
+    Collection<Post> findAllByUser_id(long id);
+
+    default Post existingCheck(long id) {
+        return findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Пост " + id + " не найден"));
+    }
+    // TODO: разнести метод на два, один для проверки, другой для возврата значения из БД.
+    //  Использовать стандартный метод JPA репозитория existsById(). Аналогично для UserStorage
 }

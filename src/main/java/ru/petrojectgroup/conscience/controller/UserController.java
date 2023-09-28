@@ -3,7 +3,7 @@ package ru.petrojectgroup.conscience.controller;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-import ru.petrojectgroup.conscience.model.User;
+import ru.petrojectgroup.conscience.model.user.UserDto;
 import ru.petrojectgroup.conscience.service.UserService;
 
 import java.util.Collection;
@@ -19,32 +19,27 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@RequestBody @Valid User user) {
-        userService.createUser(user);
-        log.info("Создан пользователь с id {}", user.getUserId());
-        return user;
+    public UserDto createUser(@RequestBody @Valid UserDto user) {
+        return userService.createUser(user);
     }
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable long id) {
         userService.deleteUser(id);
-        log.info("Пользователь с id {} был удален", id);
     }
 
     @GetMapping
-    public Collection<User> findAll() {
+    public Collection<UserDto> findAll() {
         return userService.findAll();
     }
 
-    @PutMapping
-    public User updateUser(@RequestBody @Valid User user) {
-        userService.updateUser(user);
-        log.info("Обновлен пользователь с id {}", user.getUserId());
-        return user;
+    @PutMapping("/{id}")
+    public UserDto updateUser(@RequestBody @Valid UserDto user, @PathVariable long id) {
+        return userService.updateUser(user, id);
     }
 
     @GetMapping("/{id}")
-    public User findUser(@PathVariable long id) {
+    public UserDto findUser(@PathVariable long id) {
         return userService.findUser(id);
     }
 }

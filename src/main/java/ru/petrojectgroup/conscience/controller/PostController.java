@@ -3,13 +3,12 @@ package ru.petrojectgroup.conscience.controller;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-import ru.petrojectgroup.conscience.model.Post;
+import ru.petrojectgroup.conscience.model.post.PostDto;
 import ru.petrojectgroup.conscience.service.PostService;
 
 import java.util.Collection;
 
 @RestController
-@Slf4j
 @RequestMapping("/posts")
 public class PostController {
     private final PostService postService;
@@ -19,37 +18,29 @@ public class PostController {
     }
 
     @PostMapping
-    public Post createPost(@RequestBody @Valid Post post) {
-        postService.createPost(post);
-        log.info("Пользователь с id {} добавил новый пост", post.getUserId());
-        return post;
+    public PostDto createPost(@RequestBody @Valid PostDto post, @RequestHeader("X-ShareIt-User-Id") long userId) {
+        return postService.createPost(post, userId);
     }
 
-    @DeleteMapping("/{id}/{id}")
-    public void deletePost(@PathVariable long postId, @PathVariable long userId) {
+    @DeleteMapping("/{id}")
+    public void deletePost(@PathVariable long postId, @RequestHeader("X-ShareIt-User-Id") long userId) {
         postService.deletePost(postId, userId);
-        log.info("Пост с id {} был удален", postId);
     }
 
     @GetMapping
-    public Collection<Post> findAll() {
-        return postService.findAll();
+    public Collection<PostDto> findAll(@RequestParam("user") Long userId) {
+        return postService.findAll(userId);
     }
 
     @PutMapping("/{id}")
-    public Post updatePost(@RequestBody @Valid Post post, @PathVariable long userId) {
-        postService.updatePost(post, userId);
-        log.info("Пост с id {} был обновлен", post.getUserId());
-        return post;
+    public PostDto updatePost(@RequestBody @Valid PostDto post,
+                              @PathVariable long id,
+                              @RequestHeader("X-ShareIt-User-Id") long userId) {
+        return postService.updatePost(post, id, userId);
     }
 
     @GetMapping("/{id}")
-    public Post findPost(@PathVariable long postId) {
+    public PostDto findPost(@PathVariable long postId) {
         return postService.findPost(postId);
-    }
-
-    @GetMapping("/{id}")
-    public Collection<Post> findAllPostsOfUser(@PathVariable long userId) {
-        return postService.findAllPostsOfUser(userId);
     }
 }
