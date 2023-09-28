@@ -38,6 +38,7 @@ public class UserService {
     }
 
     public UserDto updateUser(UserDto userDto, long id) {
+        userStorage.existingCheck(id);
         User user = UserMapper.dtoToPojo(userDto);
         user.setId(id);
 

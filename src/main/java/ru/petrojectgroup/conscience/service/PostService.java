@@ -21,7 +21,6 @@ public class PostService {
     private final PostStorage postStorage;
     private final UserStorage userStorage;
 
-    @Autowired
     public PostService(PostStorage postStorage, UserStorage userStorage) {
         this.postStorage = postStorage;
         this.userStorage = userStorage;

@@ -13,4 +13,6 @@ public interface PostStorage extends JpaRepository<Post, Long> {
         return findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Пост " + id + " не найден"));
     }
+    // TODO: разнести метод на два, один для проверки, другой для возврата значения из БД.
+    //  Использовать стандартный метод JPA репозитория existsById(). Аналогично для UserStorage
 }
