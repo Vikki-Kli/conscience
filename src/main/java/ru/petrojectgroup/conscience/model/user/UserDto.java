@@ -6,7 +6,6 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Data
-@NoArgsConstructor
 public class UserDto {
     @NotBlank(message="Email can not be empty")
     @Email
@@ -21,10 +20,8 @@ public class UserDto {
     private LocalDate birthday;
     private String photoUrl; // опционально
 
-    public UserDto(String email, String login, String name, LocalDate birthday) {
-        this.email = email;
+    public UserDto(String login, String name) {
         this.login = login;
         this.name = name == null || name.trim().isEmpty() ? login : name;
-        this.birthday = birthday;
     }
 }
