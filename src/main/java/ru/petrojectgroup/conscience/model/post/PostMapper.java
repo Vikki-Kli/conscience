@@ -10,11 +10,9 @@ public class PostMapper {
     }
 
     public static PostDto pojoToDto(Post pojo) {
-        PostDto dto = new PostDto();
-        dto.setPostContent(pojo.getPostContent());
+        PostDto dto = new PostDto(pojo.getPostContent(), pojo.getUser().getId());
         dto.setCreationDate(pojo.getCreationDate());
         dto.setPhotoUrl(pojo.getPhotoUrl());
-        dto.setUserId(pojo.getUser().getId());
         return dto;
     }
 }

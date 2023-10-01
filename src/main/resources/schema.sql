@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS users
     name VARCHAR(50),
     login VARCHAR(32) NOT NULL,
     email VARCHAR(254) NOT NULL,
-    birthday TIMESTAMP WITH TIME ZONE NOT NULL,
+    birthday DATE NOT NULL,
     photo VARCHAR,
     CONSTRAINT unique_email UNIQUE(email),
     CONSTRAINT unique_login UNIQUE(login)

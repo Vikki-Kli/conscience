@@ -12,10 +12,8 @@ public class UserMapper {
     }
 
     public static UserDto pojoToDto(User pojo) {
-        UserDto dto = new UserDto(pojo.getLogin(), pojo.getName());
-        dto.setEmail(pojo.getEmail());
+        UserDto dto = new UserDto(pojo.getEmail(), pojo.getLogin(), pojo.getBirthday(), pojo.getName());
         dto.setPhotoUrl(pojo.getPhotoUrl());
-        dto.setBirthday(pojo.getBirthday());
         return dto;
     }
 }
