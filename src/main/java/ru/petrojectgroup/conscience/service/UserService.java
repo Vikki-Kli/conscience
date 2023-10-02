@@ -22,6 +22,8 @@ public class UserService {
     }
 
     public UserDto createUser(UserDto dto) {
+        //TODO: Добавить отдельный SQL-запрос на проверку уникальности email и login,
+        // иначе на каждую неудачную попытку съедается значение id
         User user = userStorage.save(UserMapper.dtoToPojo(dto));
         log.info("Создан пользователь " + user);
         return UserMapper.pojoToDto(user);

@@ -1,10 +1,8 @@
 package ru.petrojectgroup.conscience.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.petrojectgroup.conscience.exception.AccessException;
-import ru.petrojectgroup.conscience.exception.ValidationException;
 import ru.petrojectgroup.conscience.model.post.Post;
 import ru.petrojectgroup.conscience.model.post.PostDto;
 import ru.petrojectgroup.conscience.model.post.PostMapper;
@@ -12,8 +10,8 @@ import ru.petrojectgroup.conscience.model.user.User;
 import ru.petrojectgroup.conscience.storage.post.PostStorage;
 import ru.petrojectgroup.conscience.storage.user.UserStorage;
 
+import java.time.Instant;
 import java.util.Collection;
-import java.util.NoSuchElementException;
 
 @Service
 @Slf4j
@@ -27,6 +25,7 @@ public class PostService {
     }
 
     public PostDto createPost(PostDto dto, long userId) {
+        dto.setCreationDate(Instant.now());
         Post post = PostMapper.dtoToPojo(dto);
         User user = userStorage.existingCheck(userId);
         post.setUser(user);
@@ -59,6 +58,8 @@ public class PostService {
     public PostDto updatePost(PostDto dto, long id, long userId) {
         userStorage.existingCheck(userId);
         Post post = postStorage.existingCheck(id);
+        dto.setCreationDate(post.getCreationDate());
+
         if (post.getUser().getId() == userId) {
             post = postStorage.save(post);
             log.info("Обновлен пост " + id);
