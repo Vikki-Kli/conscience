@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="47c2ca9e-04d0-4f42-af9a-a46632e2e521" name="Changes" comment="&quot;fix: при удалении/изменении пользователя id пользователя берется из хэдера, т.е. удалить/изменить можно только себя&quot;">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/AccessException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/Comment$CommentBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/Comment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/CommentController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/CommentDto$CommentDtoBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/CommentDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/CommentMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/CommentService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/CommentStorage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/ConscienceApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/ExceptionController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/OpenApiConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/Post.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/PostController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/PostDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/PostMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/PostService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/PostStorage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/UserDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/UserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/UserStorage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/ValidationException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_10_2023_11_35__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/AccessException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Comment$CommentBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Comment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/CommentController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/CommentDto$CommentDtoBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/CommentDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/CommentMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/CommentService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/CommentStorage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/ConscienceApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/ExceptionController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/OpenApiConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Post.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/PostController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/PostDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/PostMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/PostService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/PostStorage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/UserDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/UserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/UserStorage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/ValidationException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/controller/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/model/comment/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/model/comment/CommentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/model/comment/CommentMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/service/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/storage/comment/CommentStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/ConscienceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/ConscienceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/config/OpenApiConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/controller/ExceptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/controller/ExceptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/exception/AccessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/exception/AccessException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/exception/ValidationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/exception/ValidationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/model/post/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/model/post/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/model/post/PostDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/model/post/PostDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/model/post/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/model/post/PostMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/model/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/model/user/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/model/user/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/model/user/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/model/user/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/storage/post/PostStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/storage/post/PostStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/petrojectgroup/conscience/storage/user/UserStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/petprojectgroup/conscience/storage/user/UserStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2WIneJtUzunyPvtynvUr71FA4vx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.google.cloudcode.ide_session_index": "20231005_0003",
+    "last_opened_file_path": "C:/Users/alesh/dev/petrojectgroup",
+    "settings.editor.selected.configurable": "configurable.group.appearance"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="47c2ca9e-04d0-4f42-af9a-a46632e2e521" name="Changes" comment="" />
+      <created>1696429055714</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696429055714</updated>
+    </task>
+    <task id="LOCAL-00001" summary="&quot;refactor: добавлены комментарии&quot;">
+      <created>1696494217209</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696494217209</updated>
+    </task>
+    <task id="LOCAL-00002" summary="-------">
+      <created>1696494391683</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696494391683</updated>
+    </task>
+    <task id="LOCAL-00003" summary="-------">
+      <created>1696495483384</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696495483384</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="add-comments" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="&quot;refactor: добавлены комментарии&quot;" />
+    <MESSAGE value="-------" />
+    <option name="LAST_COMMIT_MESSAGE" value="-------" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+</project>
