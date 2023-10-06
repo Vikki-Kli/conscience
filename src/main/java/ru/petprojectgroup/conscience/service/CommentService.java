@@ -27,6 +27,8 @@ public class CommentService {
     }
 
     public CommentDto createComment(CommentDto dto, long postId, long userId) {
+        userStorage.existingCheck(userId);
+        postStorage.existingCheck(postId);
         dto.setCreationDate(Instant.now());
         dto.setUserId(userId);
         dto.setPostId(postId);
@@ -57,8 +59,10 @@ public class CommentService {
     public CommentDto updateComment(CommentDto dto, long postId, long commentId, long userId) {
         userStorage.existingCheck(userId);
         postStorage.existingCheck(postId);
-        Comment comment = commentStorage.existingCheck(commentId);
-        dto.setCreationDate(comment.getCreationDate());
+        commentStorage.existingCheck(commentId);
+
+        Comment comment = commentStorage.findById(commentId).get();
+        comment.setCreationDate(comment.getCreationDate());
 
         if (comment.getUser().getId() == userId) {
             comment = commentStorage.save(comment);
@@ -70,6 +74,6 @@ public class CommentService {
     }
 
     public CommentDto findComment(long commentId) {
-        return CommentMapper.pojoToDto(commentStorage.existingCheck(commentId));
+        return CommentMapper.pojoToDto(commentStorage.findById(commentId).get());
     }
 }
