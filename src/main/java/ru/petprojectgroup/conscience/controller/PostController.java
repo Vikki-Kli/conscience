@@ -5,7 +5,9 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
-import ru.petprojectgroup.conscience.model.post.PostDto;
+import ru.petprojectgroup.conscience.model.post.PostDtoIn;
+import ru.petprojectgroup.conscience.model.post.PostDtoOut;
+import ru.petprojectgroup.conscience.model.post.reaction.ReactionType;
 import ru.petprojectgroup.conscience.service.PostService;
 
 import java.util.Collection;
@@ -23,8 +25,8 @@ public class PostController {
 
     @PostMapping
     @Operation(summary = "Создание поста")
-    public PostDto createPost(@RequestBody @Valid PostDto post,
-                              @RequestHeader("X-Conscience-User-Id") @Parameter(description = "id пользователя, отправляющего запрос") long userId) {
+    public PostDtoOut createPost(@RequestBody @Valid PostDtoIn post,
+                                 @RequestHeader("X-Conscience-User-Id") @Parameter(description = "id пользователя, отправляющего запрос") long userId) {
         return postService.createPost(post, userId);
     }
 
@@ -37,21 +39,40 @@ public class PostController {
 
     @GetMapping
     @Operation(summary = "Запрос всех постов", description = "При передаче id пользователя выводит только посты этого пользователя")
-    public Collection<PostDto> findAll(@RequestParam(value = "user", required = false) Long userId) {
-        return postService.findAll(userId);
+    public Collection<PostDtoOut> findAll(@RequestParam(value = "user", required = false) Long authorId,
+                                          @RequestHeader(value = "X-Conscience-User-Id", required = false)
+                                                @Parameter(description = "id пользователя, отправляющего запрос") Long userId) {
+        return postService.findAll(authorId, userId);
     }
 
     @PutMapping("/{postId}")
     @Operation(summary = "Редактирование поста")
-    public PostDto updatePost(@RequestBody @Valid PostDto post,
-                                @PathVariable long postId,
-                                @RequestHeader("X-Conscience-User-Id") @Parameter(description = "id пользователя, отправляющего запрос") long userId) {
+    public PostDtoOut updatePost(@RequestBody @Valid PostDtoIn post,
+                                 @PathVariable long postId,
+                                 @RequestHeader("X-Conscience-User-Id") @Parameter(description = "id пользователя, отправляющего запрос") long userId) {
         return postService.updatePost(post, postId, userId);
     }
 
     @GetMapping("/{postId}")
     @Operation(summary = "Запрос поста")
-    public PostDto findPost(@PathVariable long postId) {
-        return postService.findPost(postId);
+    public PostDtoOut findPost(@PathVariable long postId,
+                               @RequestHeader(value = "X-Conscience-User-Id", required = false)
+                                    @Parameter(description = "id пользователя, отправляющего запрос") Long userId) {
+        return postService.findPost(postId, userId);
+    }
+
+    @PutMapping("/{postId}/reaction")
+    @Operation(summary = "Отправить реакцию на пост")
+    public void addReaction(@PathVariable long postId,
+                            @RequestHeader("X-Conscience-User-Id") @Parameter(description = "id пользователя, отправляющего запрос") long userId,
+                            @RequestHeader("X-Conscience-Reaction-Type") @Parameter(description = "тип реакции") String reaction) {
+        postService.addReaction(postId, userId, ReactionType.valueOf(reaction));
+    }
+
+    @DeleteMapping("/{postId}/reaction")
+    @Operation(summary = "Снять реакцию на пост")
+    public void removeReaction(@PathVariable long postId,
+                            @RequestHeader("X-Conscience-User-Id") @Parameter(description = "id пользователя, отправляющего запрос") long userId) {
+        postService.removeReaction(postId, userId);
     }
 }

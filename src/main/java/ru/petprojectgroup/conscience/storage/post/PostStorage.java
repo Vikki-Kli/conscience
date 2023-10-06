@@ -9,10 +9,7 @@ import java.util.NoSuchElementException;
 public interface PostStorage extends JpaRepository<Post, Long> {
     Collection<Post> findAllByUser_id(long id);
 
-    default Post existingCheck(long id) {
-        return findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Пост " + id + " не найден"));
+    default void existingCheck(long id) {
+        if (!existsById(id)) throw new NoSuchElementException("Пост " + id + " не найден");
     }
-    // TODO: разнести метод на два, один для проверки, другой для возврата значения из БД.
-    //  Использовать стандартный метод JPA репозитория existsById(). Аналогично для UserStorage
 }

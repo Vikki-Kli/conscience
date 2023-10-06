@@ -1,18 +1,23 @@
 package ru.petprojectgroup.conscience.model.post;
 
+import ru.petprojectgroup.conscience.model.post.reaction.ReactionType;
+
 public class PostMapper {
-    public static Post dtoToPojo(PostDto dto) {
+    public static Post dtoToPojo(PostDtoIn dto) {
         Post pojo = new Post();
         pojo.setPostContent(dto.getPostContent());
-        pojo.setCreationDate(dto.getCreationDate());
         pojo.setPhotoUrl(dto.getPhotoUrl());
         return pojo;
     }
 
-    public static PostDto pojoToDto(Post pojo) {
-        PostDto dto = new PostDto(pojo.getPostContent(), pojo.getUser().getId());
+    public static PostDtoOut pojoToDto(Post pojo) {
+        PostDtoOut dto = new PostDtoOut();
+        dto.setPostContent(pojo.getPostContent());
+        dto.setUserId(pojo.getUser().getId());
         dto.setCreationDate(pojo.getCreationDate());
         dto.setPhotoUrl(pojo.getPhotoUrl());
+        dto.setAmnesties(pojo.getReactions().stream().filter(s -> s.getReactionType() == ReactionType.AMNESTY).count());
+        dto.setBlames(pojo.getReactions().stream().filter(s -> s.getReactionType() == ReactionType.BLAME).count());
         return dto;
     }
 }
