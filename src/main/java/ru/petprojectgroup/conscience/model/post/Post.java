@@ -2,9 +2,12 @@ package ru.petprojectgroup.conscience.model.post;
 
 import jakarta.persistence.*;
 import lombok.*;
+import ru.petprojectgroup.conscience.model.post.reaction.Reaction;
 import ru.petprojectgroup.conscience.model.user.User;
 
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -26,4 +29,7 @@ public class Post {
     private User user;
     @Column(name="photo")
     private String photoUrl;
+    @OneToMany
+    @JoinColumn(name = "post_id")
+    private Set<Reaction> reactions = new HashSet<>();
 }

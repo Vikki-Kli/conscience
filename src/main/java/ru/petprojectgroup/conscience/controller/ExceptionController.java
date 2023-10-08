@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import ru.petprojectgroup.conscience.exception.AccessException;
 
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -20,6 +21,8 @@ public class ExceptionController {
     @ExceptionHandler(DataIntegrityViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Map<String, String> handleSqlException(Exception e) {
+        System.out.println(e.getClass());
+        System.out.println(e.getMessage());
         if (e.getClass() == DataIntegrityViolationException.class && e.getMessage().contains("ограничение уникальности \"unique_email\""))
             return Map.of("ошибка: ", "Эта почта уже используется");
         else if (e.getClass() == DataIntegrityViolationException.class && e.getMessage().contains("ограничение уникальности \"unique_login\""))
@@ -33,12 +36,11 @@ public class ExceptionController {
         return Map.of("ошибка: ", e.getMessage());
     }
 
-//    @ExceptionHandler(AccessException.class)
-//    @ResponseStatus(HttpStatus.FORBIDDEN)
-//    public Map<String, String> handleAccessDenied(Exception e) {
-//        return Map.of("ошибка: ", e.getMessage());
-//    }
-    // Добавить ошибку доступа
+    @ExceptionHandler(AccessException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public Map<String, String> handleAccessDenied(Exception e) {
+        return Map.of("ошибка: ", e.getMessage());
+    }
 
     @ExceptionHandler({HttpMessageNotReadableException.class,
             MethodArgumentNotValidException.class,
@@ -46,6 +48,8 @@ public class ExceptionController {
             MethodArgumentTypeMismatchException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Map<String, String> handleDeserializeAndValidationException(Exception e) {
+        System.out.println(e.getClass());
+        System.out.println(e.getMessage());
         return Map.of("ошибка: ", "неправильно введены данные. Попробуйте еще раз");
     }
 

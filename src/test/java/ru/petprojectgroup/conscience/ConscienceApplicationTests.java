@@ -1,4 +1,4 @@
-package ru.petrojectgroup.conscience;
+package ru.petprojectgroup.conscience;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
