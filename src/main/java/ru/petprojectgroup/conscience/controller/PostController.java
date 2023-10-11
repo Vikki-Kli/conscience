@@ -15,7 +15,7 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/posts")
 @Tag(name = "Посты", description = "Взаимодействие с постами")
-//@CrossOrigin(origins = "http://192.168.0.103")
+@CrossOrigin
 public class PostController {
     private final PostService postService;
 
