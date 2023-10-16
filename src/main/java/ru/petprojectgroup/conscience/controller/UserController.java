@@ -13,7 +13,7 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/users")
 @Tag(name = "Пользователи", description = "Взаимодействие с пользователями")
-//@CrossOrigin(origins = "http://192.168.0.103")
+@CrossOrigin
 public class UserController {
     private final UserService userService;
 

@@ -13,6 +13,7 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/posts")
 @Tag(name = "Комментарии", description = "Взаимодействие с комментариями")
+@CrossOrigin
 public class CommentController {
     private final CommentService commentService;
 
